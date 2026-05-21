@@ -10,6 +10,10 @@
 **Goal:** Establish Dockerized Node control plane, Postgres schema baseline, scheduling controls, and operational visibility.
 **Mode:** mvp
 **Requirements:** PLAT-01, PLAT-02, PLAT-03, PLAT-04, ARCH-01, ARCH-02, ARCH-03
+**Plans:** 2 plans
+Plans:
+- [ ] 01-01-PLAN.md - Backend foundation: schema, provider/schedule APIs, trigger pipeline, lifecycle persistence
+- [ ] 01-02-PLAN.md - Operator UI: config/schedule/manual-run/history views wired to backend contracts
 **Success Criteria**:
 1. Docker Compose starts all baseline services successfully in one command.
 2. Web UI/API can manage provider config and schedule settings.
