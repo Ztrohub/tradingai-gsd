@@ -1,0 +1,11 @@
+:root {
+  --color-dominant: #F3F0E8;
+  --color-secondary: #1F3A5F;
+  --color-accent: #E06C2F;
+  --color-destructive: #C62828;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+}
