@@ -7,10 +7,10 @@
 
 ### Platform & Operations
 
-- [ ] **PLAT-01**: User can configure AI model providers (Groq/OpenRouter) and model parameters from web interface.
-- [ ] **PLAT-02**: User can configure weekly and daily cron schedules from web interface.
-- [ ] **PLAT-03**: User can trigger weekly and daily jobs manually from web interface.
-- [ ] **PLAT-04**: System records run logs, status, and errors for each job execution.
+- [x] **PLAT-01**: User can configure AI model providers (Groq/OpenRouter) and model parameters from web interface.
+- [x] **PLAT-02**: User can configure weekly and daily cron schedules from web interface.
+- [x] **PLAT-03**: User can trigger weekly and daily jobs manually from web interface.
+- [x] **PLAT-04**: System records run logs, status, and errors for each job execution.
 
 ### Market Data & Universe
 
@@ -45,9 +45,9 @@
 
 ### Architecture & Deployment
 
-- [ ] **ARCH-01**: Web/control plane is implemented in Node.js.
-- [ ] **ARCH-02**: Main database for app state is Postgres.
-- [ ] **ARCH-03**: Entire system runs via Docker Compose with reproducible startup.
+- [x] **ARCH-01**: Web/control plane is implemented in Node.js.
+- [x] **ARCH-02**: Main database for app state is Postgres.
+- [x] **ARCH-03**: Entire system runs via Docker Compose with reproducible startup.
 
 ## v2 Requirements
 
@@ -75,13 +75,13 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| PLAT-01 | Phase 1 | Pending |
-| PLAT-02 | Phase 1 | Pending |
-| PLAT-03 | Phase 1 | Pending |
-| PLAT-04 | Phase 1 | Pending |
-| ARCH-01 | Phase 1 | Pending |
-| ARCH-02 | Phase 1 | Pending |
-| ARCH-03 | Phase 1 | Pending |
+| PLAT-01 | Phase 1 | Complete |
+| PLAT-02 | Phase 1 | Complete |
+| PLAT-03 | Phase 1 | Complete |
+| PLAT-04 | Phase 1 | Complete |
+| ARCH-01 | Phase 1 | Complete |
+| ARCH-02 | Phase 1 | Complete |
+| ARCH-03 | Phase 1 | Complete |
 | DATA-01 | Phase 2 | Pending |
 | DATA-02 | Phase 2 | Pending |
 | DATA-03 | Phase 2 | Pending |
