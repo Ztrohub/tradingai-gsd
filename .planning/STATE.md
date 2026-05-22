@@ -3,7 +3,7 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: ready_to_plan
-last_updated: 2026-05-21T15:48:56.763Z
+last_updated: 2026-05-22T05:26:45.000Z
 progress:
   total_phases: 5
   completed_phases: 0
@@ -34,3 +34,12 @@ See: .planning/PROJECT.md (updated 2026-05-21)
 - Single-operator project.
 - Paper-trading only for v1.
 - Schedule target: Sunday watchlist run + weekday 09:00 decision run.
+
+## Quick Tasks Completed
+
+| Date | Slug | Status | Notes |
+|---|---|---|---|
+| 2026-05-22 | imlementasi-baseline-ui-phase-1 | complete | Baseline Phase 1 UI implemented at /app with API wiring |
+
+| 2026-05-22 | edit-delete-provider-profile | complete | Added provider profile edit/delete in API + UI |
+

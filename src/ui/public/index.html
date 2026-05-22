@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Trade IDX Control Plane</title>
+    <link rel="stylesheet" href="/app/app.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero">
+        <h1>AI Trade IDX</h1>
+        <p>Phase 1 Control Plane</p>
+      </header>
+
+      <nav class="tabs" aria-label="Main sections">
+        <button class="tab active" data-tab="provider">Provider Config</button>
+        <button class="tab" data-tab="schedule">Schedule</button>
+        <button class="tab" data-tab="manual">Manual Runs</button>
+        <button class="tab" data-tab="history">Run History</button>
+      </nav>
+
+      <section class="panel" id="tab-provider">
+        <h2>Provider Profiles</h2>
+        <p id="provider-mode" class="muted">Mode: Create</p>
+        <form id="provider-form" class="stack">
+          <input type="hidden" name="id" />
+          <label>Name <input name="name" required /></label>
+          <label>Provider
+            <select name="provider">
+              <option value="groq">groq</option>
+              <option value="openrouter">openrouter</option>
+            </select>
+          </label>
+          <label>Model <input name="model" required /></label>
+          <label>API Base URL <input name="api_base" type="url" placeholder="https://api.openai.com/v1" required /></label>
+          <label>API Key <input name="api_key" /></label>
+          <div class="inline">
+            <button type="submit">Save Configuration</button>
+            <button type="button" id="provider-cancel-edit" class="hidden">Cancel Edit</button>
+          </div>
+        </form>
+        <ul id="provider-list" class="list"></ul>
+      </section>
+
+      <section class="panel hidden" id="tab-schedule">
+        <h2>Schedule</h2>
+        <p class="muted">Timezone: Asia/Jakarta</p>
+        <form id="schedule-form" class="stack">
+          <label><input type="checkbox" name="daily_enabled" /> Daily enabled</label>
+          <label>Daily time <input type="time" name="daily_time" required /></label>
+          <div class="inline" id="weekday-group"></div>
+          <label><input type="checkbox" name="weekly_enabled" /> Weekly enabled (Sunday)</label>
+          <button type="submit">Save Configuration</button>
+        </form>
+      </section>
+
+      <section class="panel hidden" id="tab-manual">
+        <h2>Manual Runs</h2>
+        <p id="manual-warning" class="warning hidden">Run in progress</p>
+        <div class="inline">
+          <button id="trigger-daily">Trigger Daily Run</button>
+          <button id="trigger-weekly">Trigger Weekly Run</button>
+        </div>
+      </section>
+
+      <section class="panel hidden" id="tab-history">
+        <h2>Run History</h2>
+        <table>
+          <thead><tr><th>ID</th><th>Type</th><th>Status</th><th>Created</th><th>Actions</th></tr></thead>
+          <tbody id="history-body"></tbody>
+        </table>
+        <aside id="run-details" class="drawer hidden"></aside>
+      </section>
+
+      <p id="flash" class="flash"></p>
+    </main>
+    <script type="module" src="/app/app.js"></script>
+  </body>
+</html>

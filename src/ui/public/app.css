@@ -1,0 +1,97 @@
+:root {
+  --color-dominant: #F3F0E8;
+  --color-secondary: #1F3A5F;
+  --color-accent: #E06C2F;
+  --color-destructive: #C62828;
+  --color-text: #17212b;
+  --color-surface: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Source Sans 3", sans-serif;
+  background: var(--color-dominant);
+  color: var(--color-text);
+}
+
+.container { max-width: 980px; margin: 0 auto; padding: 24px; }
+.hero h1 { margin: 0; font-family: "Space Grotesk", sans-serif; color: var(--color-secondary); }
+.hero p { margin-top: 4px; }
+
+.tabs { display: flex; gap: 8px; margin: 16px 0; flex-wrap: wrap; }
+.tab {
+  border: 1px solid var(--color-secondary);
+  background: var(--color-surface);
+  color: var(--color-secondary);
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 700;
+}
+.tab:hover { background: #edf2f9; }
+.tab.active {
+  background: var(--color-secondary);
+  color: #ffffff;
+}
+
+.panel {
+  background: var(--color-surface);
+  border-radius: 10px;
+  padding: 16px;
+  border: 1px solid #d8d2c6;
+  margin-bottom: 16px;
+}
+
+.hidden { display: none; }
+.stack { display: grid; gap: 10px; }
+.inline { display: flex; gap: 8px; flex-wrap: wrap; }
+
+label { color: var(--color-text); font-weight: 600; }
+input, select, button { padding: 8px; font: inherit; }
+input:not([type="checkbox"]),
+select {
+  width: 100%;
+  background: #fff;
+  color: #111;
+  border: 1px solid #b9b4a9;
+  border-radius: 8px;
+}
+input[type="checkbox"] {
+  width: auto;
+  margin-right: 4px;
+  accent-color: var(--color-secondary);
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:not(.tab) {
+  background: var(--color-accent);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+button:not(.tab):hover { filter: brightness(0.95); }
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.list { padding-left: 18px; }
+.list li { margin-bottom: 8px; }
+.warning { color: var(--color-destructive); font-weight: 700; }
+.muted { color: #4e5f73; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { border-bottom: 1px solid #e3ddd2; text-align: left; padding: 8px; color: var(--color-text); }
+th { color: var(--color-secondary); }
+.badge { padding: 2px 8px; border-radius: 999px; color: white; font-size: 12px; }
+.drawer { margin-top: 12px; background: #f7f4ee; padding: 12px; border-radius: 8px; }
+.flash { min-height: 24px; font-weight: 600; }
+
+@media (max-width: 720px) {
+  .container { padding: 16px; }
+  .tab { flex: 1 1 calc(50% - 8px); text-align: center; }
+}

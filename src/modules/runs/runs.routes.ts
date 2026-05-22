@@ -3,6 +3,12 @@ import { getRun, listRuns, triggerRun } from "./runs.service.js";
 
 export const runsRouter = Router();
 
+function parsePositiveInt(value: string): number | null {
+  if (!/^\d+$/.test(value)) return null;
+  const parsed = Number(value);
+  return Number.isSafeInteger(parsed) && parsed > 0 ? parsed : null;
+}
+
 runsRouter.post("/daily/trigger", async (_req, res) => {
   try {
     const run = await triggerRun("daily", "manual");
@@ -35,7 +41,13 @@ runsRouter.get("/", async (_req, res) => {
 });
 
 runsRouter.get("/:id", async (req, res) => {
-  const row = await getRun(Number(req.params.id));
+  const id = parsePositiveInt(req.params.id);
+  if (!id) {
+    res.status(400).json({ code: "invalid_id", message: "id must be a positive integer" });
+    return;
+  }
+
+  const row = await getRun(id);
   if (!row) {
     res.status(404).json({ code: "run_not_found", message: "run not found" });
     return;
