@@ -18,6 +18,7 @@
         <button class="tab" data-tab="schedule">Schedule</button>
         <button class="tab" data-tab="manual">Manual Runs</button>
         <button class="tab" data-tab="history">Run History</button>
+        <button class="tab" data-tab="universe">Universe & Watchlist</button>
       </nav>
 
       <section class="panel" id="tab-provider">
@@ -36,8 +37,8 @@
           <label>API Base URL <input name="api_base" type="url" placeholder="https://api.openai.com/v1" required /></label>
           <label>API Key <input name="api_key" /></label>
           <div class="inline">
-            <button type="submit">Save Configuration</button>
-            <button type="button" id="provider-cancel-edit" class="hidden">Cancel Edit</button>
+            <button type="submit" class="btn-primary">Save Configuration</button>
+            <button type="button" id="provider-cancel-edit" class="btn-secondary hidden">Cancel Edit</button>
           </div>
         </form>
         <ul id="provider-list" class="list"></ul>
@@ -51,7 +52,7 @@
           <label>Daily time <input type="time" name="daily_time" required /></label>
           <div class="inline" id="weekday-group"></div>
           <label><input type="checkbox" name="weekly_enabled" /> Weekly enabled (Sunday)</label>
-          <button type="submit">Save Configuration</button>
+          <button type="submit" class="btn-primary">Save Configuration</button>
         </form>
       </section>
 
@@ -59,8 +60,8 @@
         <h2>Manual Runs</h2>
         <p id="manual-warning" class="warning hidden">Run in progress</p>
         <div class="inline">
-          <button id="trigger-daily">Trigger Daily Run</button>
-          <button id="trigger-weekly">Trigger Weekly Run</button>
+          <button id="trigger-daily" class="btn-primary">Trigger Daily Run</button>
+          <button id="trigger-weekly" class="btn-primary">Trigger Weekly Run</button>
         </div>
       </section>
 
@@ -71,6 +72,37 @@
           <tbody id="history-body"></tbody>
         </table>
         <aside id="run-details" class="drawer hidden"></aside>
+      </section>
+
+      <section class="panel hidden" id="tab-universe">
+        <h2>Universe & Watchlist</h2>
+        <div class="inline">
+          <button id="sync-universe" class="btn-secondary">Sync LQ45 Universe</button>
+          <button id="run-weekly-selection" class="btn-primary">Run Weekly Selection</button>
+        </div>
+        <hr />
+        <div class="split">
+          <div>
+            <h3>LQ45 Universe</h3>
+            <p id="universe-meta" class="muted"></p>
+            <form id="universe-add-form" class="inline">
+              <input name="symbol" placeholder="ADD SYMBOL (e.g. BBCA)" maxlength="6" />
+              <button type="submit" class="btn-secondary">Add Symbol</button>
+            </form>
+            <ul id="universe-list" class="list"></ul>
+          </div>
+          <div>
+            <h3>Watchlist</h3>
+            <label><input type="checkbox" id="watchlist-override-toggle" /> Enable manual override</label>
+            <form id="watchlist-add-form" class="inline">
+              <input name="symbol" placeholder="ADD SYMBOL (e.g. TLKM)" maxlength="6" />
+              <button type="submit" class="btn-secondary">Add Watchlist Symbol</button>
+            </form>
+            <p id="watchlist-meta" class="muted"></p>
+            <div id="meta-agent-summary" class="meta-agent-summary hidden"></div>
+            <div id="watchlist-accordion" class="watchlist-accordion"></div>
+          </div>
+        </div>
       </section>
 
       <p id="flash" class="flash"></p>
