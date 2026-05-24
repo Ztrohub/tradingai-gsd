@@ -24,6 +24,10 @@ Plans:
 **Goal:** Build reliable LQ45 market/news data adapters and weekly watchlist generation pipeline.
 **Mode:** mvp
 **Requirements:** DATA-01, DATA-02, DATA-03, DATA-04
+**Plans:** 2/2 plans complete
+Plans:
+- [x] 02-01-PLAN.md - Universe ingestion, weekly watchlist scoring, daily market/indicator/sentiment pipeline
+- [x] 02-02-PLAN.md - UAT gap closure: Universe & Watchlist CRUD UI + explicit Sync/Weekly actions
 **Success Criteria**:
 1. LQ45 universe can be ingested, validated, and refreshed.
 2. Weekly Sunday job selects and stores 5-10 watchlist symbols.

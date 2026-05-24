@@ -15,7 +15,8 @@
 
 3. ai-engine (Python)
 - Multi-agent debate runner (TradingAgents-inspired)
-- Technical + sentiment feature assembly
+- Consumes retrieval-ready technical context JSON from control plane
+- Performs multi-agent debate over technical + sentiment + analog history evidence
 - Decision formatter
 - Risk RL adapter (SQLite memory)
 
@@ -33,10 +34,28 @@
 5. Paper execution simulates fills and updates portfolio ledger.
 6. Run artifacts and metrics stored in Postgres; RL memory updated in SQLite.
 
+## Data Flow (Weekly Watchlist)
+1. Scheduler/manual trigger refreshes LQ45 universe.
+2. Worker fetches historical OHLCV for all 45 symbols plus IHSG benchmark.
+3. Control plane extracts technical feature vectors from rolling windows:
+   - RVOL
+   - RSI
+   - distance to moving averages
+   - momentum / range / structure context
+   - macro trend state from IHSG
+4. Current symbol vectors are compared against historical vectors to retrieve the most similar prior regimes and their forward outcomes.
+5. Control plane persists watchlist selections together with retrieval metadata and a debate-ready JSON payload.
+6. AI engine consumes the raw market snapshot + retrieval summary + analog matches for multi-agent debate and emits final watchlist decision JSON.
+
 ## Contract Shape (per symbol)
 - symbol
 - action: BUY | HOLD | SELL | IDLE
 - confidence: 0..1
+- retrieval_context:
+  - technical_snapshot
+  - benchmark_snapshot
+  - retrieval_summary
+  - retrieved_analogs
 - rationale:
   - technical_summary
   - sentiment_summary

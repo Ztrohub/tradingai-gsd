@@ -14,10 +14,10 @@
 
 ### Market Data & Universe
 
-- [ ] **DATA-01**: System can ingest and maintain LQ45 symbol universe.
-- [ ] **DATA-02**: Weekly job can select 5-10 watchlist symbols from LQ45 based on configured filters.
-- [ ] **DATA-03**: Daily job can fetch price/indicator inputs for all watchlist symbols.
-- [ ] **DATA-04**: Daily job can fetch local/news sentiment inputs relevant to watchlist symbols.
+- [x] **DATA-01**: System can ingest and maintain LQ45 symbol universe.
+- [x] **DATA-02**: Weekly job can select 5-10 watchlist symbols from LQ45 based on configured filters.
+- [x] **DATA-03**: Daily job can fetch price/indicator inputs for all watchlist symbols.
+- [x] **DATA-04**: Daily job can fetch local/news sentiment inputs relevant to watchlist symbols.
 
 ### Multi-Agent Decisioning
 
@@ -82,10 +82,10 @@
 | ARCH-01 | Phase 1 | Complete |
 | ARCH-02 | Phase 1 | Complete |
 | ARCH-03 | Phase 1 | Complete |
-| DATA-01 | Phase 2 | Pending |
-| DATA-02 | Phase 2 | Pending |
-| DATA-03 | Phase 2 | Pending |
-| DATA-04 | Phase 2 | Pending |
+| DATA-01 | Phase 2 | Complete |
+| DATA-02 | Phase 2 | Complete |
+| DATA-03 | Phase 2 | Complete |
+| DATA-04 | Phase 2 | Complete |
 | AGNT-01 | Phase 3 | Pending |
 | AGNT-02 | Phase 3 | Pending |
 | AGNT-03 | Phase 3 | Pending |

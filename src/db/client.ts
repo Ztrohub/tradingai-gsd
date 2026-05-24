@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { env } from "../config/env.js";
 
 export const pool = new Pool({ connectionString: env.DATABASE_URL });
+let schemaReady: Promise<void> | null = null;
 
 export async function dbHealth(): Promise<boolean> {
   try {
@@ -26,4 +27,14 @@ export async function ensureSchema(): Promise<void> {
   const schemaPath = path.resolve(__dirname, "schema.sql");
   const schemaSql = await readFile(schemaPath, "utf8");
   await pool.query(schemaSql);
+}
+
+export function ensureSchemaOnce(): Promise<void> {
+  if (!schemaReady) {
+    schemaReady = ensureSchema().catch((error) => {
+      schemaReady = null;
+      throw error;
+    });
+  }
+  return schemaReady;
 }
