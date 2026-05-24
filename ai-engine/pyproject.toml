@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-trade-ai-engine"
+version = "0.1.0"
+description = "AI engine service for TradingAgents-style watchlist debate"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115.0",
+  "uvicorn[standard]>=0.30.0",
+  "pydantic>=2.8.0",
+  "pydantic-settings>=2.4.0",
+  "openai>=1.52.0",
+  "psycopg[binary]>=3.2.1",
+  "tradingagents @ git+https://github.com/TauricResearch/TradingAgents.git@v0.2.5",
+]
+
+[tool.setuptools]
+packages = ["app"]

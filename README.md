@@ -11,6 +11,17 @@
    - `npm run dev`
 4. Health check:
    - `curl http://localhost:3000/health`
+   - `curl http://localhost:8080/health`
+
+## Services
+
+- `node-control-plane` on `:3000`
+- `ai-engine` (Python, TradingAgents embedded scaffold) on `:8080`
+
+## Dev note
+
+- `npm run dev` now runs `docker compose up -d ai-engine` first, then starts Node.
+- Docker Desktop/daemon must be running for that auto-start step.
 
 ## Available scripts
 - `npm run dev`

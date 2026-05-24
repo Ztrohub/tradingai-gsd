@@ -4,12 +4,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "tsx src/index.ts",
+    "dev": "npm run dev:ai-engine && tsx src/index.ts",
+    "dev:ai-engine": "docker compose up -d ai-engine --build",
     "build": "tsc -p tsconfig.json",
     "start": "node dist/index.js",
     "test": "vitest run",
     "test:integration": "vitest run tests/integration.test.ts",
-    "smoke:phase1": "tsx tests/smoke.ts"
+    "smoke:phase1": "tsx tests/smoke.ts",
+    "verify:lq45-sync": "tsx tests/verify-lq45-sync.ts"
   },
   "dependencies": {
     "bullmq": "^5.56.1",

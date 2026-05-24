@@ -12,12 +12,24 @@ services:
       - PORT=3000
       - DATABASE_URL=postgres://postgres:postgres@db:5432/ai_trade
       - REDIS_URL=redis://redis:6379
+      - AI_ENGINE_URL=http://ai-engine:8080
       - TZ=Asia/Jakarta
     volumes:
       - ./:/app
     depends_on:
       - db
       - redis
+      - ai-engine
+  ai-engine:
+    build:
+      context: ./ai-engine
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
   db:
     image: postgres:16-alpine
     restart: unless-stopped
